@@ -15,7 +15,7 @@
         <div class="task">
             <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted"/>
             <div class="info">
-                <input type="text" class="name" id="newTaskName" name="newTaskName" placeholder="New task name" autofocus="true"/>
+                <input type="text" class="name" id="newTaskName" name="newTaskName" placeholder="New task name" autofocus="autofocus"/>
                 <label id="newTaskNameFeedback"></label>
                 <div>
                     <input type="date" class="deadline" id="newTaskDeadline" name="newTaskDeadline"/>
@@ -23,10 +23,11 @@
                 </div>
             </div>
         </div>
-        <section id="tasks"></section>
-        <script src="jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>
-        <script src="task.js" type="text/javascript" charset="utf-8"></script>
-        <script src="util.js" type="text/javascript" charset="utf-8"></script>
-        <script src="index.js" type="text/javascript" charset="utf-8"></script>
+        <section id="tasks">
+        </section>
+        <script src="jquery-3.3.1.min.js"></script>
+        <script src="task.js"></script>
+        <script src="util.js"></script>
+        <script src="index.js"></script>
     </body>
 </html>

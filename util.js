@@ -23,23 +23,24 @@ function deleteTask(name) {
 function renderTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks"))
     if (tasks !== null && tasks !== "null")
-        $("#tasks").html(tasks.map(t => {
-            return `<article class="task">
-                <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
-                <div class="info">
-                <label class="name">${escapeHtml(t.name)}</label>
-                <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
-                </div>
-                <svg width="3em" height="3em" class="delete">
-                <line x1="0" y1="0" x2="3em" y2="3em"/>
-                <line x1="3em" y1="0" x2="0" y2="3em"/>
-                </svg>
-                </article>
-                `
-        }
-        ))
+        $("#tasks").html(
+            tasks.map(t => {
+                return `<article class="task">
+                    <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
+                    <div class="info">
+                    <label class="name">${escapeHtml(t.name)}</label>
+                    <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
+                    </div>
+                    <svg width="3em" height="3em" class="delete">
+                    <line x1="0" y1="0" x2="3em" y2="3em"/>
+                    <line x1="3em" y1="0" x2="0" y2="3em"/>
+                    </svg>
+                    </article>
+                    `
+            })
+        )
     else
-        $("#tasks").html("")
+        $("#tasks").html("<h5/>")
 
     const articles = $("#tasks").children("article")
     for (let i = 0; i < articles.length; i++) {
