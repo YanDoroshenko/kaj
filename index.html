@@ -1,13 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <title>Simple Task Log</title>
+        <link rel="stylesheet" type="text/css" href="common.css"/>
+    </head>
     <body>
-        <div>
-            <svg id="svg">
-            </svg>
-            <input type="text" id="newTaskName" name="newTaskName" placeholder="Name" autofocus="true"/>
-            <input type="date" id="newTaskDeadline" name="newTaskDeadline"/>
-            <input type="checkbox" id="newTaskCompleted" name="newTaskCompleted"/>
-            <button id="createTask">Create Task</button>
+        <header>
+            <svg id="svg" width="3.5em" height="1em"></svg>
+            <label id="title">Simple Task Log</label>
+        </header>
+        <div class="task">
+            <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted"/>
+            <div class="info">
+                <input type="text" class="name" id="newTaskName" name="newTaskName" placeholder="New task name" autofocus="true"/>
+                <input type="date" class="deadline" id="newTaskDeadline" name="newTaskDeadline"/>
+            </div>
         </div>
         <section id="tasks"></section>
         <script src="jquery-3.3.1.min.js" type="text/javascript" charset="utf-8"></script>

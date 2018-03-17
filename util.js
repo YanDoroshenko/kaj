@@ -24,10 +24,16 @@ function renderTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks"))
     if (tasks !== null && tasks !== "null")
         $("#tasks").html(tasks.map(t => {
-            return `<article>
-                <label>${escapeHtml(t.name)}</label> ${new Date(t.deadline)}
-                <input type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
-                <button>Delete</button>
+            return `<article class="task">
+                <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
+                <div class="info">
+                    <label class="name">${escapeHtml(t.name)}</label>
+                    <label class="deadline">${new Date(t.deadline)}</label>
+                </div>
+                <svg width="4em" height="4em" class="delete">
+                    <line x1="0" y1="0" x2="4em" y2="4em"/>
+                    <line x1="4em" y1="0" x2="0" y2="4em"/>
+                </svg>
                 </article>
                 `
         }
@@ -37,11 +43,11 @@ function renderTasks() {
 
     const articles = $("#tasks").children("article")
     for (let i = 0; i < articles.length; i++) {
-        const button = $(articles[i]).children("button")[0]
-        button.addEventListener('click', (e => {
-            deleteTask($($(articles[i]).children("label")[0]).text())
+        const button = $(articles[i]).children(".delete")[0]
+        $(button).click(e => {
+            deleteTask($($($(articles[i]).children(".info")[0]).children("label")[0]).text())
             renderTasks()
-        }))
+        })
     }
 }
 
