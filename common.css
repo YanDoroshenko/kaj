@@ -50,6 +50,9 @@ header #title {
     font-size: 2em;
     color: white;
 }
+.task .info #newTaskDeadline:focus {
+    outline: none;
+}
 .task .info #newTaskName:focus {
     outline: none;
 }
