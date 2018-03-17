@@ -1,6 +1,7 @@
 $(document).ready(e => {
-    $("#newTaskDeadline").val(format(new Date()))
+    saveState()
     renderTasks()
+    $("#newTaskDeadline").val(format(new Date()))
     $("#svg").html("<text x=\"0\" y=\"15\" fill=\"green\">Online</text>")
     $("#createTask").click(e => {
 
@@ -44,5 +45,9 @@ $(document).ready(e => {
     })
     $(window).on('online', e => {
         $("#svg").html("<text x=\"0\" y=\"15\" fill=\"green\">Online</text>")
+    })
+    $(window).on('popstate', e => {
+        replaceTasks(e.originalEvent.state)
+        renderTasks()
     })
 });

@@ -1,11 +1,12 @@
 function putTask(task) {
-    if (localStorage.getItem("tasks") == null)
+    if (localStorage.getItem("tasks") == null || localStorage.getItem("tasks") === "null")
         localStorage.setItem("tasks", JSON.stringify([task]))
     else {
         const tasks = JSON.parse(localStorage.getItem("tasks"))
         tasks.push(task)
         localStorage.setItem("tasks", JSON.stringify(tasks))
     }
+    saveState()
 }
 
 function deleteTask(name) {
@@ -16,21 +17,23 @@ function deleteTask(name) {
             tasks.splice(index, 1)
         localStorage.setItem("tasks", JSON.stringify(tasks))
     }
+    saveState()
 }
 
 function renderTasks() {
     const tasks = JSON.parse(localStorage.getItem("tasks"))
-    if (tasks !== null)
+    if (tasks !== null && tasks !== "null")
         $("#tasks").html(tasks.map(t => {
-            console.log(t.name)
             return `<article>
-            <label>${escapeHtml(t.name)}</label> ${new Date(t.deadline)}
-            <input type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
-            <button>Delete</button>
-            </article>
-            `
+                <label>${escapeHtml(t.name)}</label> ${new Date(t.deadline)}
+                <input type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
+                <button>Delete</button>
+                </article>
+                `
         }
         ))
+    else
+        $("#tasks").html("")
 
     const articles = $("#tasks").children("article")
     for (let i = 0; i < articles.length; i++) {
@@ -61,4 +64,12 @@ function escapeHtml (string) {
     return String(string).replace(/[&<>"'`=\/]/g, function (s) {
         return entityMap[s];
     });
+}
+
+function saveState() {
+    window.history.pushState(JSON.parse(localStorage.getItem("tasks")), null, this.href)
+}
+
+function replaceTasks(tasks) {
+    localStorage.setItem("tasks", JSON.stringify(tasks))
 }
