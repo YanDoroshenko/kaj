@@ -28,7 +28,7 @@ function renderTasks() {
                 <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
                 <div class="info">
                 <label class="name">${escapeHtml(t.name)}</label>
-                <label class="deadline">${new Date(t.deadline)}</label>
+                <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
                 </div>
                 <svg width="3em" height="3em" class="delete">
                 <line x1="0" y1="0" x2="3em" y2="3em"/>
