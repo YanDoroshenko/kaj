@@ -27,12 +27,12 @@ function renderTasks() {
             return `<article class="task">
                 <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
                 <div class="info">
-                    <label class="name">${escapeHtml(t.name)}</label>
-                    <label class="deadline">${new Date(t.deadline)}</label>
+                <label class="name">${escapeHtml(t.name)}</label>
+                <label class="deadline">${new Date(t.deadline)}</label>
                 </div>
                 <svg width="4em" height="4em" class="delete">
-                    <line x1="0" y1="0" x2="4em" y2="4em"/>
-                    <line x1="4em" y1="0" x2="0" y2="4em"/>
+                <line x1="0" y1="0" x2="4em" y2="4em"/>
+                <line x1="4em" y1="0" x2="0" y2="4em"/>
                 </svg>
                 </article>
                 `
@@ -44,8 +44,14 @@ function renderTasks() {
     const articles = $("#tasks").children("article")
     for (let i = 0; i < articles.length; i++) {
         const button = $(articles[i]).children(".delete")[0]
+        const name = $($($(articles[i]).children(".info")[0]).children("label")[0]).text()
         $(button).click(e => {
-            deleteTask($($($(articles[i]).children(".info")[0]).children("label")[0]).text())
+            deleteTask(name)
+            renderTasks()
+        })
+        const completed = $(articles[i]).children(".completed")[0]
+        $(completed).change(e => {
+            setCompleted(name, completed.checked)
             renderTasks()
         })
     }
@@ -78,4 +84,11 @@ function saveState() {
 
 function replaceTasks(tasks) {
     localStorage.setItem("tasks", JSON.stringify(tasks))
+}
+
+function setCompleted(name, completed) {
+    const tasks = JSON.parse(localStorage.getItem("tasks"))
+    const index = tasks.map(t => t.name).indexOf(name)
+    tasks[index].completed = completed;
+    replaceTasks(tasks);
 }
