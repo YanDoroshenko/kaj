@@ -1,5 +1,4 @@
 * {
-    border-radius: 0.2em;
     color: white;
 }
 header {
@@ -8,6 +7,10 @@ header {
 header #svg {
     padding: 0.3em;
 }
+header svg text {
+    animation-name: anim;
+    animation-duration: 2s;
+}
 header #title {
     margin-left: 40vw;
     font-size: 2em;
@@ -15,40 +18,6 @@ header #title {
 }
 .deadline::before {
     content: "Deadline:"
-}
-.task {
-    background-color: #99c300;
-    width: 50em;
-    max-width: 93vw;
-    height: 5em;
-    margin: auto;
-    margin-top: 1em;
-}
-.task * {
-    float: left;
-}
-.task .info * {
-    display: block;
-    float: none;
-}
-.task svg.delete {
-    margin: 1em;
-    float: right;
-}
-.task svg.delete line {
-    stroke: white;
-    stroke-width: 8;
-}
-.task .info input {
-    background-color: #99c300;
-    border: none;
-}
-.task .info .name {
-    font-size: 2em;
-    color: white;
-}
-.task .info #newTaskDeadline:focus {
-    outline: none;
 }
 .noname::after {
     content: "Name must not be empty";
@@ -59,31 +28,12 @@ header #title {
 .nodeadline::after {
     content: "Deadline must not be empty";
 }
-.task .info #newTaskName:focus {
-    outline: none;
-}
-.task .info #newTaskName {
-    display: inline;
-}
-article.task .info .deadline {
-    display: block;
-}
-.task .info #newTaskNameFeedback {
-    display: inline;
-}
-.task .info #newTaskDeadlineFeedback {
-    display: inline-block;
-    float: right;
-}
-.task .info #newTaskName::placeholder {
-    color: #cceecc;
-}
-.task .completed {
-    width: 40pt;
-    height: 40pt;
-    margin: 9pt;
-}
 .deadline {
     font-size: 1.3em;
     display: inline !important;
+}
+@keyframes anim {
+    0% {fill: green;}
+    50% {fill: white;}
+    100% {fill: green;}
 }

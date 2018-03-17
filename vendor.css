@@ -1,0 +1,7 @@
+* {
+    border-radius: 2em;
+    -webkit-border-radius: 0.2em;
+    -moz-border-radius: 0.2em;
+    -ms-border-radius: 0;
+    -apple-border-radius: 0;
+}
