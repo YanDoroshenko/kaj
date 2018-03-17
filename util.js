@@ -30,9 +30,9 @@ function renderTasks() {
                 <label class="name">${escapeHtml(t.name)}</label>
                 <label class="deadline">${new Date(t.deadline)}</label>
                 </div>
-                <svg width="4em" height="4em" class="delete">
-                <line x1="0" y1="0" x2="4em" y2="4em"/>
-                <line x1="4em" y1="0" x2="0" y2="4em"/>
+                <svg width="3em" height="3em" class="delete">
+                <line x1="0" y1="0" x2="3em" y2="3em"/>
+                <line x1="3em" y1="0" x2="0" y2="3em"/>
                 </svg>
                 </article>
                 `

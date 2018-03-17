@@ -35,12 +35,12 @@ header #title {
     float: none;
 }
 .task svg.delete {
-    margin: 0.49em;
+    margin: 1em;
     float: right;
 }
 .task svg.delete line {
     stroke: white;
-    stroke-width: 4;
+    stroke-width: 8;
 }
 .task .info input {
     background-color: #99c300;
