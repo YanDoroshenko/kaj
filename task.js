@@ -16,7 +16,7 @@ class Task {
     toJSON() {
         return {
             "name" : this.name,
-            "deadline": JSON.stringify(this.deadline),
+            "deadline": this.deadline,
             "completed" : this.completed
         }
     }

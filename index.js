@@ -1,4 +1,5 @@
 $(document).ready(e => {
+    $("#newTaskDeadline").val(format(new Date()))
     renderTasks()
     $("#svg").html("<text x=\"0\" y=\"15\" fill=\"green\">Online</text>")
     $("#createTask").click(e => {
@@ -32,6 +33,10 @@ $(document).ready(e => {
             putTask(new CompletedTask(name, deadlineDate))
         else
             putTask(new NewTask(name, deadlineDate))
+
+        $("#newTaskDeadline").val(format(new Date()))
+        $("#newTaskName").val("")
+        $("#newTaskCompleted").removeAttr("checked")
         renderTasks()
     })
     $(window).on('offline', e => {
