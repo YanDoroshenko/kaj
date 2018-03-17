@@ -13,9 +13,6 @@ header #title {
     font-size: 2em;
     color: white;
 }
-.deadline {
-    font-size: 1.3em;
-}
 .deadline::before {
     content: "Deadline:"
 }
@@ -53,8 +50,30 @@ header #title {
 .task .info #newTaskDeadline:focus {
     outline: none;
 }
+.noname::after {
+    content: "Name must not be empty";
+}
+.exists::after {
+    content: "Task already exists";
+}
+.nodeadline::after {
+    content: "Deadline must not be empty";
+}
 .task .info #newTaskName:focus {
     outline: none;
+}
+.task .info #newTaskName {
+    display: inline;
+}
+article.task .info .deadline {
+    display: block;
+}
+.task .info #newTaskNameFeedback {
+    display: inline;
+}
+.task .info #newTaskDeadlineFeedback {
+    display: inline-block;
+    float: right;
 }
 .task .info #newTaskName::placeholder {
     color: #cceecc;
@@ -63,4 +82,8 @@ header #title {
     width: 40pt;
     height: 40pt;
     margin: 9pt;
+}
+.deadline {
+    font-size: 1.3em;
+    display: inline !important;
 }

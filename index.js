@@ -8,29 +8,25 @@ $(document).ready(e => {
         if (key === 13) {
             const deadline = $("#newTaskDeadline").val()
             const hasDeadline = deadline != ""
-            if (!hasDeadline) {
-                new Audio("sound.wav").play()
-                e.preventDefault()
-                return
-            }
-            const deadlineDate = Date.parse(deadline)
+            if (!hasDeadline)
+                $("#newTaskDeadlineFeedback").addClass("nodeadline")
 
             const name = $("#newTaskName").val()
-
-            const hasName = name != ""
-            if (!hasName) {
-                new Audio("sound.wav").play()
-                e.preventDefault()
-                return
-            }
+            const hasName = name !== undefined && name !== ""
+            if (!hasName)
+                $("#newTaskNameFeedback").addClass("noname")
 
             const tasks = localStorage.getItem("tasks")
-            if (tasks != null && JSON.parse(tasks).map(t => t.name).indexOf(name) != -1) {
+            const exists = tasks != null && JSON.parse(tasks).map(t => t.name).indexOf(name) != -1
+            if (exists)
+                $("#newTaskNameFeedback").addClass("exists")
+
+            if (!hasDeadline || !hasName || exists) {
                 new Audio("sound.wav").play()
-                e.preventDefault()
                 return
             }
 
+            const deadlineDate = Date.parse(deadline)
             if ($("#newTaskCompleted").prop('checked'))
                 putTask(new CompletedTask(name, deadlineDate))
             else
@@ -39,6 +35,9 @@ $(document).ready(e => {
             $("#newTaskDeadline").val(format(new Date()))
             $("#newTaskName").val("")
             $("#newTaskCompleted").prop("checked", false)
+            $("#newTaskNameFeedback").removeClass("noname")
+            $("#newTaskNameFeedback").removeClass("exists")
+            $("#newTaskDeadlineFeedback").removeClass("nodeadline")
             renderTasks()
         }
     })

@@ -14,7 +14,11 @@
             <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted"/>
             <div class="info">
                 <input type="text" class="name" id="newTaskName" name="newTaskName" placeholder="New task name" autofocus="true"/>
-                <input type="date" class="deadline" id="newTaskDeadline" name="newTaskDeadline"/>
+                <label id="newTaskNameFeedback"></label>
+                <div>
+                    <input type="date" class="deadline" id="newTaskDeadline" name="newTaskDeadline"/>
+                    <label id="newTaskDeadlineFeedback"></label>
+                </div>
             </div>
         </div>
         <section id="tasks"></section>
