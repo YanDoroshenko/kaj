@@ -16,10 +16,10 @@
     margin: 9pt;
     height: 40pt;
     width: 40pt;
-    background-color: #eee;
+    background-color: #eeeeee;
 }
 .container:hover input ~ .checkmark {
-    background-color: #ccc;
+    background-color: #cccccc;
 }
 .checkmark:after {
     content: "";
