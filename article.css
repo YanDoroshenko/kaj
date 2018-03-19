@@ -5,7 +5,7 @@
     height: 5em;
     margin: auto;
     margin-top: 1em;
-    transition: width 1s, height 1s;
+    transition: transform 0.5s;
 }
 .task * {
     float: left;
@@ -34,8 +34,8 @@
     outline: none;
 }
 article:hover {
-    width: 60em;
-    height: 6em;
+    transform: scale(1.2);
+    transition: transform 0.5s;
 }
 .task .info #newTaskName:focus {
     outline: none;
