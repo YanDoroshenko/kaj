@@ -5,6 +5,7 @@
         <link rel="stylesheet" type="text/css" href="common.css"/>
         <link rel="stylesheet" type="text/css" href="article.css"/>
         <link rel="stylesheet" type="text/css" href="vendor.css"/>
+        <link rel="stylesheet" type="text/css" href="checkbox.css"/>
         <link rel="icon" type="image/x-icon" href="favicon.png"/>
     </head>
     <body>
@@ -13,7 +14,10 @@
             <label id="title">Simple Task Log</label>
         </header>
         <div class="task">
-            <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted" title="Completed"/>
+            <label class="container">
+                <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted"/>
+                <span class="checkmark" title="Completed"></span>
+            </label>
             <div class="info">
                 <input type="text" class="name" id="newTaskName" name="newTaskName" placeholder="New task name" autofocus="autofocus"/>
                 <label id="newTaskNameFeedback"></label>

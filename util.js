@@ -25,16 +25,20 @@ function renderTasks() {
     if (tasks !== null && tasks !== "null")
         $("#tasks").html(
             tasks.map(t => {
-                return `<article class="task">
-                    <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''} title="Completed"/>
-                    <div class="info">
-                    <label class="name">${escapeHtml(t.name)}</label>
-                    <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
-                    </div>
-                    <svg width="3em" height="3em" class="delete">
-                    <line x1="0" y1="0" x2="3em" y2="3em"/>
-                    <line x1="3em" y1="0" x2="0" y2="3em"/>
-                    </svg>
+                return `
+                    <article class="task">
+                       <label class="container">
+                            <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''} title="Completed"/>
+                            <span class="checkmark" title="Completed"></span>
+                        </label>
+                        <div class="info">
+                            <label class="name">${escapeHtml(t.name)}</label>
+                            <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
+                        </div>
+                        <svg width="3em" height="3em" class="delete">
+                        <line x1="0" y1="0" x2="3em" y2="3em"/>
+                        <line x1="3em" y1="0" x2="0" y2="3em"/>
+                        </svg>
                     </article>
                     `
             })
@@ -50,7 +54,7 @@ function renderTasks() {
             deleteTask(name)
             renderTasks()
         })
-        const completed = $(articles[i]).children(".completed")[0]
+        const completed = $($(articles[i]).children(".container")[0]).children(".completed")[0]
         $(completed).change(e => {
             setCompleted(name, completed.checked)
             renderTasks()
