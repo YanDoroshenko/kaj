@@ -26,7 +26,7 @@ function renderTasks() {
         $("#tasks").html(
             tasks.map(t => {
                 return `<article class="task">
-                    <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''}/>
+                    <input class="completed" type="checkbox" ${t.completed === true ? 'checked="true"' : ''} title="Completed"/>
                     <div class="info">
                     <label class="name">${escapeHtml(t.name)}</label>
                     <label class="deadline">${new Date(t.deadline).toLocaleDateString()}</label>
