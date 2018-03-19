@@ -10,7 +10,7 @@ header #svg {
 }
 header svg text {
     animation-name: anim;
-    animation-duration: 2s;
+    animation-duration: 1s;
 }
 header #title {
     margin-left: 40vw;
