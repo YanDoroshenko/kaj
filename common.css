@@ -18,7 +18,7 @@ header #title {
     color: white;
 }
 .deadline::before {
-    content: "Deadline:"
+    content: "Deadline: "
 }
 .noname::after {
     content: "Name must not be empty";
