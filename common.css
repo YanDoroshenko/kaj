@@ -44,3 +44,17 @@ h5 {
     margin: 0;
     margin-left: 45vw;
 }
+
+
+@media print {
+    * {
+        color: black !important;
+        background-color: white !important;
+    }
+    svg {
+        display: none !important;
+    }
+    #new.task {
+        display: none;
+    }
+}
