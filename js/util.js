@@ -95,4 +95,5 @@ function setCompleted(name, completed) {
     const index = tasks.map(t => t.name).indexOf(name)
     tasks[index].completed = completed;
     replaceTasks(tasks);
+    saveState()
 }
