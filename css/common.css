@@ -1,0 +1,60 @@
+* {
+    color: white;
+    border-radius: 0.2em;
+}
+header {
+    background-color: #99c300;
+}
+header #svg {
+    padding: 0.3em;
+}
+header svg text {
+    animation-name: anim;
+    animation-duration: 1s;
+}
+header #title {
+    margin-left: 40vw;
+    font-size: 2em;
+    color: white;
+}
+.deadline::before {
+    content: "Deadline: "
+}
+.noname::after {
+    content: "Name must not be empty";
+}
+.exists::after {
+    content: "Task already exists";
+}
+.nodeadline::after {
+    content: "Deadline must not be empty";
+}
+.deadline {
+    font-size: 1.3em;
+    display: inline !important;
+}
+@keyframes anim {
+    0% {fill: green;}
+    50% {fill: white;}
+    100% {fill: green;}
+}
+h5 {
+    font-size: 1.5em;
+    color: #99c300;
+    margin: 0;
+    margin-left: 45vw;
+}
+
+
+@media print {
+    * {
+        color: black !important;
+        background-color: white !important;
+    }
+    svg {
+        display: none !important;
+    }
+    #new.task {
+        display: none;
+    }
+}
