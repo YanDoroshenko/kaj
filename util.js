@@ -57,7 +57,6 @@ function renderTasks() {
         const completed = $($(articles[i]).children(".container")[0]).children(".completed")[0]
         $(completed).change(e => {
             setCompleted(name, completed.checked)
-            renderTasks()
         })
     }
 }
