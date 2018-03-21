@@ -9,11 +9,11 @@
     </head>
     <body>
         <header>
-            <svg id="svg" width="3.5em" height="1em"></svg>
+            <svg id="svg" width="3.5em" height="1em"></svg> <!-- Network status indicator -->
             <label id="title">Simple Task Log</label>
         </header>
-        <div id="new" class="task">
-            <label class="container">
+        <div id="new" class="task"> <!-- Task creation form -->
+            <label class="container"> <!-- Custom checkbox -->
                 <input type="checkbox" id="newTaskCompleted" class="completed" name="newTaskCompleted"/>
                 <span class="checkmark" title="Completed"></span>
             </label>
@@ -26,7 +26,7 @@
                 </div>
             </div>
         </div>
-        <section id="tasks">
+        <section id="tasks"> <!-- Placeholder for the task list to be populated in JS -->
         </section>
         <script src="js/jquery-3.3.1.min.js"></script>
         <script src="js/task.js"></script>

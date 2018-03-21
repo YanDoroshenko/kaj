@@ -1,3 +1,4 @@
+// Task class and subclasses
 class Task {
     constructor(name, deadline, completed) {
         this.name = name
